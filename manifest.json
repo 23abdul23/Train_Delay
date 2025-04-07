@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Train Delay Tracker",
+    "version": "1.0",
+    "action": {
+    "default_popup": "popup.html",
+    "default_title": "Train Delay Info"
+    },
+    "side_panel": {
+      "default_path": "popup.html"
+    },
+    "permissions": [
+      "sidePanel",
+      "tabs",
+      "activeTab",
+      "scripting"
+    ],
+    "host_permissions": ["https://www.irctc.co.in/*", "https://etrain.info/*","http://localhost:5000/"],
+    "background": {
+    "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+        "matches": ["https://www.irctc.co.in/*","https://etrain.info/*"],
+        "js": ["content.js"]
+        }
+    ]
+}
+  
